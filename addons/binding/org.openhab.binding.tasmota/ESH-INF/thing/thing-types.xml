@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<thing:thing-descriptions bindingId="tasmota"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:thing="http://eclipse.org/smarthome/schemas/thing-description/v1.0.0"
+	xsi:schemaLocation="http://eclipse.org/smarthome/schemas/thing-description/v1.0.0 http://eclipse.org/smarthome/schemas/thing-description-1.0.0.xsd">
+
+	<!-- Sample Thing Type -->
+	<thing-type id="tasmota-device">
+		<label>tasmota Binding Thing</label>
+		<description>Sample thing for tasmota Binding</description>
+
+		<channels>
+			<channel id="channel1" typeId="on-off-channel" />
+		</channels>
+
+		<config-description>
+			<parameter name="mqttBroker" type="text" required="true">
+				<label>mqtt broker address</label>
+				<description>mqtt broker address</description>
+			</parameter>
+			<parameter name="mqttTopic" type="text" required="true">
+				<label>mqtt broker topic</label>
+				<default>sonoff</default>
+				<description>mqtt broker topic</description>
+			</parameter>
+			<parameter name="sonoffModel" type="text" required="true">
+				<options>
+					<option value="0">01 Sonoff Basic</option>
+					<option value="1">02 Sonoff RF</option>
+					<option value="3">04 Sonoff TH</option>
+					<option value="4">05 Sonoff Dual</option>
+					<option value="38">39 Sonoff Dual R2</option>
+					<option value="5">06 Sonoff Pow</option>
+					<option value="42">43 Sonoff Pow R2</option>
+					<option value="40">41 Sonoff S31</option>
+					<option value="6">07 Sonoff 4CH</option>
+					<option value="22">23 Sonoff 4CH Pro</option>
+				</options>
+				<label>sonoff model</label>
+				<default>0</default>
+				<description>sonoff model</description>
+			</parameter>
+			<parameter name="powerLine" type="integer" required="false">
+				<label>power line</label>
+				<description>power line</description>
+			</parameter>
+
+		</config-description>
+
+	</thing-type>
+
+	<!-- Sample Channel Type -->
+	<channel-type id="on-off-channel">
+		<item-type>Switch</item-type>
+		<label>on off channel</label>
+		<description>on off channel</description>
+		<category>Lightbulb</category>
+	</channel-type>
+
+</thing:thing-descriptions>
